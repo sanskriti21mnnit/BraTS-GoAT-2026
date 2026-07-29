@@ -63,4 +63,4 @@ GitHub Release or your Synapse project.
 | Model     | Status      | Notes                                              |
 |-----------|-------------|----------------------------------------------------|
 | SwinUNETR | Implemented | supervised + SSL pretrain + region-wise fine-tune  |
-| 3D U-Net  | Placeholder |                                                    |
+
