@@ -1,0 +1,23 @@
+# ============================================================
+# Local training / notebook environment (dev).
+# The Docker submission uses a slimmer, pinned list at
+# models/swinunetr/docker/requirements.txt (torch comes from the base image).
+# ============================================================
+
+# Core DL stack (install a CUDA build of torch matching your driver;
+# the training stack was 2.5.1 + cu121).
+torch==2.5.1
+monai==1.5.2
+
+# Medical imaging IO + numerics
+nibabel==5.4.2
+scipy==1.13.1
+numpy==1.26.4
+einops==0.8.2
+
+# Notebooks, plotting, logging
+jupyterlab
+matplotlib
+pandas
+scikit-learn
+tqdm

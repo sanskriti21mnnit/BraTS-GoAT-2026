@@ -1,0 +1,7 @@
+# torch (2.5.1+cu121) is provided by the base image -- do NOT add it here,
+# adding it can pull a different build and break CUDA.
+monai==1.5.2
+nibabel==5.4.2
+scipy==1.13.1
+numpy==1.26.4
+einops==0.8.2
