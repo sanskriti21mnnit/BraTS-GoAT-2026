@@ -27,11 +27,10 @@ brats-goat/
 ## Task convention
 
 - Inputs: 4 modalities per subject, `[t1n, t1c, t2w, t2f]`, BraTS naming.
-- Labels: `0=BG, 1=NCR, 2=ED, 3=ET`.
+- Labels: ` 1=NCR, 2=ED, 3=ET`.
 - Evaluation regions: WT `{1,2,3}`, TC `{1,3}`, ET `{3}`.
 
-Two head conventions are used across the pipeline. The supervised baseline uses a
-4-class softmax head. The SSL fine-tuned submission model uses a 3-region sigmoid
+Two head conventions are used across the pipeline. The supervised baseline and the SSL fine-tuned submission model uses a 3-region sigmoid
 head `[TC, WT, ET]` decoded to the integer label map. See each model's README.
 
 ## Quick start
@@ -41,10 +40,6 @@ head `[TC, WT, ET]` decoded to the integer label map. See each model's README.
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements-dev.txt
 
-# work through the SwinUNETR notebooks in order
-#   models/swinunetr/notebooks/01_train_supervised.ipynb
-#   models/swinunetr/notebooks/02_ssl_pretrain.ipynb
-#   models/swinunetr/notebooks/03_ssl_finetune.ipynb
 
 # build and submit (see models/swinunetr/README.md)
 cd models/swinunetr/docker
