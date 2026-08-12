@@ -8,10 +8,9 @@ Docker-packaged inference entrypoint for Synapse submission.
 
 ```
 swinunetr/
-├── notebooks/
-│   ├── 01_train_supervised.ipynb   # baseline SwinUNETR, 4-class softmax head
-│   ├── 02_ssl_pretrain.ipynb       # SSL pretraining (inpainting + rotation + contrastive)
-│   └── 03_ssl_finetune.ipynb       # region-wise fine-tuning, 3-region sigmoid head
+│   ├── train_swinunetr_supervised.ipynb   # baseline SwinUNETR,
+│   ├── SSL_pretrain_swinunetr.ipynb       # SSL pretraining (inpainting + rotation + contrastive)
+│   └── finetune_swinunetr_ssl_region.ipynb       # region-wise fine-tuning, 3-region sigmoid head
 └── docker/
     ├── Dockerfile                  # pytorch 2.5.1 / cu121 base
     ├── predict.py                  # submission entrypoint (region sigmoid decode)
@@ -20,13 +19,21 @@ swinunetr/
     └── model/                      # place model.pth here (gitignored)
 ```
 
-## Two head conventions (important)
-
-The pipeline uses two different output heads. Do not mix them.
 
 
-`predict.py` hard-fails at load time if the checkpoint head does not have 3 channels,
-so a softmax checkpoint will not silently run through the submission container.
+**BraTS-GoAT Challenge: Tumor Segmentation**
+
+This repository contains the training and inference pipelines developed for the BraTS-GoAT Challenge for automated brain tumor segmentation from multimodal MRI scans. The framework includes two complementary deep learning pipelines: a fully supervised learning pipeline and a self-supervised learning (SSL) pipeline.
+
+1. **Overview**
+
+The objective of this work is to develop robust 3D deep learning models for brain tumor segmentation using the multimodal MRI sequences provided by the BraTS-GoAT dataset.
+
+The proposed framework investigates two different training strategies:
+
+**Supervised Learning Pipeline** – the segmentation model is trained directly using labeled MRI volumes and corresponding tumor segmentation masks.
+**Self-Supervised Learning Pipeline** – an encoder is first pretrained using unlabeled MRI data through a self-supervised learning objective. The pretrained encoder is subsequently transferred to the downstream tumor segmentation task.
+
 
 ## Pipeline stages
 
