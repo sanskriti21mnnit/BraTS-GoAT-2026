@@ -25,7 +25,7 @@ swinunetr/
 
 This repository contains the training and inference pipelines developed for the BraTS-GoAT Challenge for automated brain tumor segmentation from multimodal MRI scans. The framework includes two complementary deep learning pipelines: a fully supervised learning pipeline and a self-supervised learning (SSL) pipeline.
 
-1. **Overview**
+**Overview**
 
 The objective of this work is to develop robust 3D deep learning models for brain tumor segmentation using the multimodal MRI sequences provided by the BraTS-GoAT dataset.
 
